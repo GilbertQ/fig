@@ -30,6 +30,6 @@ links <- data.frame(
 sankeyNetwork(Links = links, Nodes = nodes, 
               Source = "source", Target = "target", 
               Value = "value", NodeID = "name", 
-              units = "Applications", fontSize = 12, nodeWidth = 30)
+              units = "Applications", fontSize = 18, nodeWidth = 30)
 
 ```
