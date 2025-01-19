@@ -1,0 +1,35 @@
+---
+title: "RecruitmentFunnel"
+author: "GilbertQ"
+date: "2025-01-19"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+```{r recruitment}
+library(networkD3)
+
+# Define nodes with numbers
+nodes <- data.frame(
+  name = c("Applications (45)", "First Call (13)", "Rejected (11)", "No Answer (21)", "Interviews (9)", "Declined (4)", "Offers (2)", "No Offer (7)")
+)
+
+# Define links
+links <- data.frame(
+  source = c(0, 0, 0, 1, 1, 4, 4),  # Index of source nodes
+  target = c(1, 2, 3, 4, 5, 6, 7),  # Index of target nodes
+  value = c(13, 11, 21, 9, 4, 2, 7) # Number of transitions
+)
+
+# Create Sankey diagram
+sankeyNetwork(Links = links, Nodes = nodes, 
+              Source = "source", Target = "target", 
+              Value = "value", NodeID = "name", 
+              units = "Applications", fontSize = 12, nodeWidth = 30)
+
+```
