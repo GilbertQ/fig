@@ -16,7 +16,8 @@ library(networkD3)
 
 # Define nodes with numbers
 nodes <- data.frame(
-  name = c("Applications (45)", "First Call (13)", "Rejected (11)", "No Answer (21)", "Interviews (9)", "Declined (4)", "Offers (2)", "No Offer (7)")
+  name = c("Applications (45)", "First Call (13)", "Rejected (11)", "No Answer (21)", 
+           "Interviews (9)", "Declined (4)", "Offers (2)", "No Offer (7)")
 )
 
 # Define links
@@ -26,10 +27,11 @@ links <- data.frame(
   value = c(13, 11, 21, 9, 4, 2, 7) # Number of transitions
 )
 
-# Create Sankey diagram
+# Create Sankey diagram with a larger width
 sankeyNetwork(Links = links, Nodes = nodes, 
               Source = "source", Target = "target", 
               Value = "value", NodeID = "name", 
-              units = "Applications", fontSize = 18, nodeWidth = 30)
+              units = "Applications", fontSize = 18, nodeWidth = 60, width = "100%")
+
 
 ```
